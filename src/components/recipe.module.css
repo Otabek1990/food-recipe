@@ -1,0 +1,20 @@
+.wrapper{
+
+  border-radius: 10px;
+  box-shadow:0px 5px 20px rgb(71,71,71);
+  margin:20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+  align-items: center;
+  min-width: 40%;
+  padding-bottom: 10px;
+  padding-right: 5px;
+  background-color: yellow
+}
+
+.image{
+	border-radius: 50%;
+
+}
