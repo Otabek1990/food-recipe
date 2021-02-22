@@ -14,16 +14,23 @@ const App= () =>  {
   const [query, setQuery]=useState('chicken');
 
 //----------------------------
-const searchBtn=()=>{
-  getRecipes()
-}
 
-//------------------------------------
- /* useEffect(() => {
+ const getRecipes=async ()=>{
+  const response=await fetch(`https://api.edamam.com/search?q=${query}&app_id=${App_ID}&app_key=${App_KEY}`);
+  const data= await response.json();
+  setRecipes(data.hits);
+  
+
+};
+//-----------------------------
+ useEffect(() => {
 
    getRecipes() 
  },[query]);
-*/
+
+
+//------------------------------------
+
   //----------------------------------------------
 
 const getSearchSubmitForm=(e)=>{
@@ -35,16 +42,8 @@ const getSearchSubmitForm=(e)=>{
 //---------------------------------------------------
 const updateSearch=(e)=>{
   setSearch(e.target.value)
-  console.log(search)
 };
-//--------------------------------------------------
- const getRecipes=async ()=>{
-  const response=await fetch(`https://api.edamam.com/search?q=${query}&app_id=${App_ID}&app_key=${App_KEY}`);
-  const data= await response.json();
-  setRecipes(data.hits);
-  
 
-};
 //-------------------------------------------------
   return (
 
@@ -60,12 +59,7 @@ const updateSearch=(e)=>{
      onChange={updateSearch}
 
      />
-     <button
-     type="submit"
-     className="search-button"
-     onClick={searchBtn}
-
-     >Search</button>
+    
      </form>
 
     <div className="recipes">
